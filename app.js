@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //Mongoose setup and db check
-mongoose.connect("mongodb://p_sergio:963852cd@ds111478.mlab.com:11478/myanguapp");
+mongoose.connect(process.env.DATABASEURL);
 mongoose.connection.on("connected", function(){
     console.log("Connected to db");
 });
