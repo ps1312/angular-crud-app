@@ -1,0 +1,31 @@
+<h2>All posts</h2>
+<hr>
+<button [disabled]="reloadingPosts" class="btn btn-info" (click)="getPosts()">Reload posts</button>
+<h2>Create a post</h2>
+<hr>
+
+<form class="well" (submit)="addPost()">
+  <div class="form-group">
+    <label for="inputEmail" class="control-label">Title</label>
+    <input type="text" class="form-control" [(ngModel)]="title" name="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="inputEmail" class="control-label">Content</label>
+    <textarea type="text" class="form-control" [(ngModel)]="content" name="content" placeholder="Content"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div *ngFor="let post of posts">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{post.title}}, posted by {{post.username}}
+    </div>
+    <div class="panel-body">
+      {{post.content}}
+    </div>
+    <div class="panel-footer">
+      <button *ngIf="post.username === user.username" class="btn btn-warning" [routerLink]="['/posts/edit/', post._id]">Edit</button>
+      <button  *ngIf="post.username === user.username" class="btn btn-danger" (click)="deletePost(post._id)">Delete</button>
+    </div>
+  </div>
+</div>

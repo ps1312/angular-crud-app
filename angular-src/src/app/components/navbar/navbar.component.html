@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand" routerLink="/">MEAN Auth App</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a *ngIf="!authService.loggedIn()" routerLink="/login">Login</a></li>
+            <li><a *ngIf="!authService.loggedIn()" routerLink="/register">Register</a></li>
+            <li><a *ngIf="authService.loggedIn()" routerLink="/profile">Profile</a></li>
+            <li><a *ngIf="authService.loggedIn()" routerLink="/posts">Posts</a></li>
+            <li><a *ngIf="authService.loggedIn()" href='#' (click)="logout()">Logout</a></li>
+        </ul>
+    </div>
+</nav>

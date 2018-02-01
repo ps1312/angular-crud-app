@@ -1,0 +1,14 @@
+<h2>Edit post</h2>
+<hr>
+
+<form [ngFormOptions]="{ updateOn: 'submit' }" class="well" (submit)="editPost()">
+  <div class="form-group">
+    <label class="control-label">Title</label>
+    <input type="text" class="form-control" [(ngModel)]="post.title" name="title">
+  </div>
+  <div class="form-group">
+    <label class="control-label">Content</label>
+    <textarea type="text" class="form-control" [(ngModel)]="post.content" name="content"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
