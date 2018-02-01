@@ -47,7 +47,7 @@ app.get('*', (req, res) => {
 });
 
 //Initialize server on port
-const port = proccess.env.PORT;
+const port = process.env.PORT;
 app.listen(port, function(){
     console.log("Server started at port " + port);
 });
